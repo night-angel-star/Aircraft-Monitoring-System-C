@@ -1,5 +1,5 @@
 {
-  "editor.inlineSuggest.showToolbar": "always",
+  "editor.inlineSuggest.showToolbar": "onHover",
   "files.associations": {
     "unistd.h": "c",
     "shm.h": "c",
@@ -10,7 +10,8 @@
     "displayhandler.h": "c",
     "enginepressure.h": "c",
     "simulatesensor.h": "c",
-    "ncurses.h": "c"
+    "ncurses.h": "c",
+    "stdio.h": "c"
   },
   "cSpell.words": [
     "Flucture",

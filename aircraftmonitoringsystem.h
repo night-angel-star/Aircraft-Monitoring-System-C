@@ -20,14 +20,14 @@ typedef struct
 
 } Lamp;
 
-typedef struct Reading
+typedef struct
 {
     _Bool fuel;
     _Bool enginePressure;
     _Bool engineTemperature;
     _Bool smokeDetector1;
     _Bool smokeDetector2;
-};
+} Reading;
 
 typedef struct
 {
