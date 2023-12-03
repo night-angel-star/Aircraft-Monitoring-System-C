@@ -1,0 +1,15 @@
+{
+  "editor.inlineSuggest.showToolbar": "always",
+  "files.associations": {
+    "unistd.h": "c",
+    "shm.h": "c",
+    "pthread.h": "c",
+    "ipc.h": "c",
+    "stdlib.h": "c",
+    "aircraftmonitoringsystem.h": "c",
+    "displayhandler.h": "c"
+  },
+  "cSpell.words": [
+    "vargp"
+  ]
+}
