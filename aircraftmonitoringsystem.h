@@ -35,11 +35,11 @@ typedef struct
     Dial dial;
     int SmokeSensorErr;
     char dateTime[30];
-    float enginePresureFluct;
+    float enginePressureFlucture;
     _Bool warnFlag;
     int readingFlag; // 0 -> origin, 1->
-    _Bool simulSmoke1;
-    _Bool simulSmoke2;
+    _Bool simulateSmoke1;
+    _Bool simulateSmoke2;
 } Status;
 
 void initSystemStatusValue(Status s)
