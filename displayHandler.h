@@ -5,15 +5,20 @@ void *displayHandlerThreadExecute(void *vargp)
 {
     while (1)
     {
-        printf("\033[2J\033[H");
+        system("clear");
+        // system("cls");
         printf("=================== Welcome to CRT system ====================\n\n");
         // printf("\n");
         printf("=========================== LAMPS ============================\n");
-        printf("Fuel -> %s\n", systemStatus.lamp.fuel == 0 ? "green" : "red");
-        printf("Engine Pressure -> %s\n", systemStatus.lamp.enginePressure == 0 ? "green" : "red");
-        printf("Engine Temperature -> %s\n", systemStatus.lamp.engineTemperature == 0 ? "green" : "red");
-        printf("Smoke Detector 1 -> %s\n", systemStatus.lamp.smokeDetector1 == 0 ? "green" : "red");
-        printf("Smoke Detector 2 -> %s\n", systemStatus.lamp.smokeDetector2 == 0 ? "green" : "red");
+        printf("Fuel -> \e[0;%dm%s\e[0m\n", systemStatus.lamp.fuel == 0 ? 32 : 31, systemStatus.lamp.fuel == 0 ? "green" : "red");
+        printf("Engine Pressure -> \e[0;%dm%s\e[0m\n", systemStatus.lamp.enginePressure == 0 ? 32 : 31, systemStatus.lamp.enginePressure == 0 ? "green" : "red");
+        printf("Engine Temperature -> \e[0;%dm%s\e[0m\n", systemStatus.lamp.engineTemperature == 0 ? 32 : 31, systemStatus.lamp.engineTemperature == 0 ? "green" : "red");
+        printf("Smoke Detector 1 -> \e[0;%dm%s\e[0m\n", systemStatus.lamp.smokeDetector1 == 0 ? 32 : 31, systemStatus.lamp.smokeDetector1 == 0 ? "green" : "red");
+        printf("Smoke Detector 2 -> \e[0;%dm%s\e[0m\n", systemStatus.lamp.smokeDetector2 == 0 ? 32 : 31, systemStatus.lamp.smokeDetector2 == 0 ? "green" : "red");
+        printf("=========================== DIALS ============================\n");
+        printf("Fuel -> %f %s\n", systemStatus.dial.fuelLevel, FUEL_UNITS);
+        printf("Engine Pressure -> %f %s\n", systemStatus.dial.enginePressure, ENGINE_PRESSURE_UNITS);
+        printf("Engine Temperature -> %f %s\n", systemStatus.dial.engineTemperature, ENGINE_TEMPERATURE_UNITS);
         printf("=========================== WARNINGS =========================\n");
         // TODO: print warnings
 
@@ -29,6 +34,6 @@ void *displayHandlerThreadExecute(void *vargp)
 
         fflush(stdout);
 
-        sleep(2);
+        sleep(1);
     }
 }

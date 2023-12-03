@@ -9,22 +9,18 @@
 
 Status systemStatus;
 
+SimulateFlags simulateFlags;
+
+#include "simulate.h"
+#include "limitDefinitions.h"
+
 #include "displayHandler.h"
 #include "enginePressure.h"
 #include "engineTemperature.h"
 #include "fuelSensor.h"
 #include "keyboardHandler.h"
-#include "simulateSensor.h"
 #include "smokeDetector1.h"
 #include "smokeDetector2.h"
-
-
-SimulateFlags simulateFlags;
-#include "simulate.h"
-
-
-
-
 
 int number = -1;
 
@@ -35,11 +31,13 @@ pthread_t fuelSensorThread,
     smokeDetector2,
     displayHandlerThread,
     keyboardHandlerThread,
-    simuateThread;
+    simulateThread;
 
 int main(int argc, char *argv[])
 {
-    initSystemStatusValue(systemStatus,simulateFlags);
+
+    systemStatus = initSystemStatusValue(systemStatus);
+    simulateFlags = initSimulateFlags(simulateFlags);
 
     int i = 0;
 
@@ -63,9 +61,8 @@ int main(int argc, char *argv[])
     i = 6;
     pthread_create(&keyboardHandlerThread, NULL, keyboardHandlerThreadExecute, (void *)&i);
 
-    i=7;
-    pthread_create(&simuateThread, NULL, simulateThreadExecute, (void *)&i);
-
+    i = 7;
+    pthread_create(&simulateThread, NULL, simulateThreadExecute, (void *)&i);
 
     pthread_join(fuelSensorThread, NULL);
     pthread_join(enginePressureThread, NULL);
@@ -74,8 +71,7 @@ int main(int argc, char *argv[])
     pthread_join(smokeDetector2, NULL);
     pthread_join(displayHandlerThread, NULL);
     pthread_join(keyboardHandlerThread, NULL);
-    pthread_join(simuateThread, NULL);
-
+    pthread_join(simulateThread, NULL);
 
     return 0;
 }
