@@ -36,6 +36,8 @@ typedef struct
 {
     Lamp lamp;
     Dial dial;
+    _Bool smoking1;
+    _Bool smoking2;
     int SmokeSensorErr;
     char dateTime[30];
     float enginePressureFlucture;
@@ -63,6 +65,8 @@ void initSystemStatusValue(Status s, SimulateFlags sf)
     s.dial.fuelLevel = INITIAL_FUEL_LEVEL;
     s.dial.enginePressure = INITIAL_ENGINE_PRESSURE;
     s.dial.engineTemperature = INITIAL_ENGINE_TEMPERATURE;
+    s.smoking1=0;
+    s.smoking2=0;
 
     sf.simulateSmoke1=0;
     sf.simulateSmoke2=0;
