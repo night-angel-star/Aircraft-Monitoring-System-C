@@ -1,5 +1,5 @@
 {
-  "editor.inlineSuggest.showToolbar": "onHover",
+  "editor.inlineSuggest.showToolbar": "always",
   "files.associations": {
     "unistd.h": "c",
     "shm.h": "c",
@@ -13,8 +13,5 @@
     "ncurses.h": "c",
     "stdio.h": "c"
   },
-  "cSpell.words": [
-    "Flucture",
-    "vargp"
-  ]
+  "cSpell.words": ["Flucture", "vargp"]
 }

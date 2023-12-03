@@ -24,11 +24,11 @@ void *displayHandlerThreadExecute(void *vargp)
         printf("Quit (K) , SIMULATE Smoke1  (Z) , SIMULATE Smoke2  (X) , CLEAR Readings (C)\n");
         printf("============================================================\n\n\n");
         printf("============================================================\n");
-        printf("Select READING: Fuel (F) , Pressure  (P) , Temperature (T), Smoke1 (Z)\n");
+        printf("Select READING: Fuel (F) , Pressure  (P) , Temperature (T), Smoke1 (1), Smoke2 (2)\n");
         printf("============================================================\n");
 
         fflush(stdout);
 
-        sleep(0.01);
+        sleep(2);
     }
 }
