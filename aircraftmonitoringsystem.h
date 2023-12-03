@@ -20,11 +20,26 @@ typedef struct
 
 } Lamp;
 
+typedef struct Reading
+{
+    _Bool fuel;
+    _Bool enginePressure;
+    _Bool engineTemperature;
+    _Bool smokeDetector1;
+    _Bool smokeDetector2;
+};
+
 typedef struct
 {
     Lamp lamp;
     Dial dial;
-
+    int SmokeSensorErr;
+    char dateTime[30];
+    float enginePresureFluct;
+    _Bool warnFlag;
+    int readingFlag; // 0 -> origin, 1->
+    _Bool simulSmoke1;
+    _Bool simulSmoke2;
 } Status;
 
 void initSystemStatusValue(Status s)
@@ -38,8 +53,4 @@ void initSystemStatusValue(Status s)
     s.dial.fuelLevel = INITIAL_FUEL_LEVEL;
     s.dial.enginePressure = INITIAL_ENGINE_PRESSURE;
     s.dial.engineTemperature = INITIAL_ENGINE_TEMPERATURE;
-}
-
-void updateValue(Status s)
-{
 }

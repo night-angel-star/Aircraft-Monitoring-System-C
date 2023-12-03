@@ -8,7 +8,6 @@
 #include "aircraftmonitoringsystem.h"
 
 Status systemStatus;
-initSystemStatusValue(systemStatus);
 
 #include "displayHandler.h"
 #include "enginePressure.h"
@@ -31,6 +30,7 @@ pthread_t fuelSensorThread,
 
 int main(int argc, char *argv[])
 {
+    initSystemStatusValue(systemStatus);
     int i = 0;
 
     pthread_create(&fuelSensorThread, NULL, fuelSensorThreadExecute, (void *)&i);
