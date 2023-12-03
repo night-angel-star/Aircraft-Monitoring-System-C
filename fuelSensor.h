@@ -6,6 +6,7 @@ void *fuelSensorThreadExecute(void *vargp)
     _Bool success = 0;
     while (1)
     {
+        float prevFuelLevel = 100;
         success = simulateExecution(FUEL_SENSOR_EXECUTION, FUEL_FAILURE_CHANCE);
         if (!success)
         {
@@ -21,6 +22,7 @@ void *fuelSensorThreadExecute(void *vargp)
         else
         {
             failureCount = 0;
+            fuelLevelSpeed = systemStatus.dial.fuelLevel - prevFuelLevel;
             if (systemStatus.dial.fuelLevel < MIN_FUEL_LEVEL)
             {
                 systemStatus.lamp.fuel = 1;
@@ -30,6 +32,7 @@ void *fuelSensorThreadExecute(void *vargp)
                 systemStatus.lamp.fuel = 0;
             }
         }
+        prevFuelLevel = systemStatus.dial.fuelLevel;
         sleep(1);
     }
 }

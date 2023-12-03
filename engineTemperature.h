@@ -6,6 +6,7 @@ void *engineTemperatureThreadExecute(void *vargp)
     _Bool success = 0;
     while (1)
     {
+        float prevEngineTemperature = 0;
         success = simulateExecution(ENGINE_TEMPERATURE_SENSOR_EXECUTION, ENGINE_TEMPERATURE_FAILURE_CHANCE);
         if (!success)
         {
@@ -21,6 +22,7 @@ void *engineTemperatureThreadExecute(void *vargp)
         else
         {
             failureCount = 0;
+            engineTemperatureSpeed = systemStatus.dial.engineTemperature - prevEngineTemperature;
             if (systemStatus.dial.engineTemperature > MAX_ENGINE_TEMPERATURE)
             {
                 systemStatus.lamp.engineTemperature = 1;
@@ -30,6 +32,7 @@ void *engineTemperatureThreadExecute(void *vargp)
                 systemStatus.lamp.engineTemperature = 0;
             }
         }
+        prevEngineTemperature = systemStatus.dial.engineTemperature;
         sleep(1);
     }
 }

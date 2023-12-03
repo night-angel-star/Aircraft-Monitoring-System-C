@@ -26,10 +26,11 @@ void *displayHandlerThreadExecute(void *vargp)
         // TODO: print readings
         printf("=============================================================\n");
         printf("Select OPTION : ACK Warning (Y) , IGNORE Warning  (N) ,  REQUEST Reading  (R) ,\n");
-        printf("Quit (K) , SIMULATE Smoke1  (Z) , SIMULATE Smoke2  (X) , CLEAR Readings (C)\n");
+        printf("Quit (K) , SIMULATE Smoke1  (1) , SIMULATE Smoke2  (2) , CLEAR Readings (C)\n");
+        printf("SIMULATE Over Pressure  (Z) , SIMULATE Over Temperature  (X)\n");
         printf("============================================================\n\n\n");
         printf("============================================================\n");
-        printf("Select READING: Fuel (F) , Pressure  (P) , Temperature (T), Smoke1 (1), Smoke2 (2)\n");
+        printf("Select READING: Fuel (F) , Pressure  (P) , Temperature (T)\n");
         printf("============================================================\n");
 
         fflush(stdout);

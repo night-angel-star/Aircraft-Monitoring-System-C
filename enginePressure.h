@@ -6,6 +6,7 @@ void *enginePressureThreadExecute(void *vargp)
     _Bool success = 0;
     while (1)
     {
+        float prevEnginePressure = 0;
         success = simulateExecution(ENGINE_PRESSURE_SENSOR_EXECUTION, ENGINE_PRESSURE_FAILURE_CHANCE);
 
         if (!success)
@@ -22,6 +23,7 @@ void *enginePressureThreadExecute(void *vargp)
         else
         {
             failureCount = 0;
+            enginePressureSpeed = systemStatus.dial.enginePressure - prevEnginePressure;
             if (systemStatus.dial.enginePressure > MAX_ENGINE_PRESSURE)
             {
                 systemStatus.lamp.enginePressure = 1;
@@ -31,6 +33,7 @@ void *enginePressureThreadExecute(void *vargp)
                 systemStatus.lamp.enginePressure = 0;
             }
         }
+        prevEnginePressure = systemStatus.dial.enginePressure;
         sleep(1);
     }
 }

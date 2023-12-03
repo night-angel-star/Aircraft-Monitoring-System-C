@@ -8,6 +8,9 @@
 #include "aircraftmonitoringsystem.h"
 
 Status systemStatus;
+float fuelLevelSpeed = 0;
+float enginePressureSpeed = 0;
+float engineTemperatureSpeed = 0;
 
 SimulateFlags simulateFlags;
 

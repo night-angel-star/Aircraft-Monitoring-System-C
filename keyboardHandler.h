@@ -17,8 +17,10 @@ void *keyboardHandlerThreadExecute(void *vargp)
         case 'k':
             break;
         case 'z':
+            changeSimulateOverPressure();
             break;
         case 'x':
+            changeSimulateOverTemperature();
             break;
         case 'c':
             break;
@@ -29,8 +31,10 @@ void *keyboardHandlerThreadExecute(void *vargp)
         case 't':
             break;
         case '1':
+            changeSimulateSmoke1();
             break;
         case '2':
+            changeSimulateSmoke2();
             break;
         default:
             break;
